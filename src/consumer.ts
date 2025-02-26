@@ -4,10 +4,7 @@ import { CloudEvent } from "cloudevents";
 import { config } from "./config.js";
 import { UserEvent } from "./types/index.js";
 
-const kafka = new Kafka({
-  clientId: config.kafka.clientId,
-  brokers: config.kafka.brokers,
-});
+const kafka = new Kafka(config.kafka);
 
 const registry = new SchemaRegistry({ host: config.schemaRegistry.host });
 const consumer: Consumer = kafka.consumer({
