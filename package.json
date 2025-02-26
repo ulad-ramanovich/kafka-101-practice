@@ -1,0 +1,36 @@
+{
+  "name": "kafka-101-practice",
+  "version": "1.0.0",
+  "description": "Practice with Kafka",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start:producer": "tsx src/producer.ts",
+    "start:consumer": "tsx src/consumer.ts",
+    "dev:producer": "tsx watch src/producer.ts",
+    "dev:consumer": "tsx watch src/consumer.ts",
+    "build": "tsc",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@kafkajs/confluent-schema-registry": "^3.6.1",
+    "chalk": "^5.3.0",
+    "cloudevents": "^8.0.2",
+    "kafkajs": "^2.2.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "@types/uuid": "^9.0.8",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "packageManager": "pnpm@8.15.3",
+  "engines": {
+    "node": ">=22.14.0",
+    "pnpm": ">=8"
+  }
+}
