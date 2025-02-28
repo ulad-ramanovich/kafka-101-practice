@@ -4,7 +4,6 @@ services:
   kafka:
     image: confluentinc/cp-kafka:7.7.1
     hostname: kafka
-    container_name: kafka
     ports:
       - "9992:9992"
     environment:
@@ -33,7 +32,6 @@ services:
   schema-registry:
     image: confluentinc/cp-schema-registry:7.5.1
     hostname: schema-registry
-    container_name: schema-registry
     depends_on:
       - kafka
     ports:
@@ -45,7 +43,6 @@ services:
 
   redpanda-console:
     image: redpandadata/console:v2.7.2
-    container_name: redpanda-console
     ports:
       - "9990:8080"
     environment:

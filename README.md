@@ -27,7 +27,7 @@ This project demonstrates a modern event processing system using Apache Kafka, i
    - Provides interoperability between services
    - Uses Avro for efficient serialization
 
-4. **AKHQ (Kafka UI)**
+4. **Redpanda console**
    - Web interface for Kafka management
    - Available at `http://localhost:9980`
    - Features:
