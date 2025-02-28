@@ -41,6 +41,12 @@ services:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'kafka:29992'
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8081/subjects"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 
   redpanda-console:
     image: redpandadata/console:v2.7.2
@@ -54,5 +60,6 @@ services:
       REDPANDA_ADMINAPI_ENABLED: "false"
       KAFKA_TLS_ENABLED: "false"
     depends_on:
-      - kafka
-      - schema-registry
+      schema-registry:
+        condition: service_healthy
+    restart: on-failure
